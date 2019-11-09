@@ -8,8 +8,7 @@ public class Obstacle : MonoBehaviour
 
     public Transform[] Points;
 
-    public float TimeControl ;
-    public int Count = 10;
+    public float TimeControl;
     public enum SpeedLevel {    
                                 ten_sec,
                                 five_sec,
@@ -26,35 +25,17 @@ public class Obstacle : MonoBehaviour
     {
         while(true)
         {
-            int Random_Objects = Random.Range(0, 1);
-        /*    if (Random_Objects == 0)
-            {
-                Debug.Log("Fish Bone");
-            }
-            else
-            { 
-                Debug.Log("Dried Fish");
-            }*/
+            int Random_Objects = 0;//Random.Range(0, 1);
+        
 
             int Random_Points = Random.Range(0, 3);
 
-         /*   if (Random_Points == 0)
-            {
-                Debug.Log("Up trace");
-            }
-            else if (Random_Points == 1)
-            {
-                Debug.Log("MId trace");
-            }
-            else
-            {
-                Debug.Log("Down trace");
-            }*/
-
-            Instantiate(Objects[Random_Objects],
-                        Points[Random_Points].transform.position,
-                        Points[Random_Points].transform.rotation);
-            yield return new WaitForSeconds(2);
+            GameObject NewObs = Instantiate(Objects[Random_Objects],
+                                            Points[Random_Points].transform.position,
+                                            Points[Random_Points].transform.rotation);
+            NewObs.GetComponent<ObsMove>().speed += TimeControl / 5;
+            float Random_time = Random.Range(3, 6);
+            yield return new WaitForSeconds(Random_time);
         }
     }
 
@@ -68,5 +49,6 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeControl += Time.deltaTime;
     }
 }

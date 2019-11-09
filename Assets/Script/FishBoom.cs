@@ -5,13 +5,14 @@ using UnityEngine;
 public class FishBoom : MonoBehaviour
 {
     public GameObject Boom;
-    private void OnTriggerEnter2D(Collider2D c)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Boom!");
         Instantiate(Boom, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
-        
     }
+
     // Start is called before the first frame update
     void Start()
     {
