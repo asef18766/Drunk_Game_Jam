@@ -12,12 +12,11 @@ public class Seat : MonoBehaviour
     public SpriteRenderer onTable; // on table item
     public Item[] items;
 
-    void Start()
-    {
 
-    }
     public Item Eat()
     {
+        if (st == seat_type.outside)
+            return null;
         Item r = item;
         item = null;
         onTable.sprite = null;
@@ -43,6 +42,7 @@ public class Seat : MonoBehaviour
                 break;
             case seat_type.outside:
                 item = _item;
+                onTable.sprite = item.ren.sprite;
                 break;
             default:
                 break;

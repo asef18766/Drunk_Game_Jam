@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (target_item && !hold)
             {
-                Debug.Log("Eat");
+                //Debug.Log("Eat");
                 //anim.SetTrigger("Eat");
                 if (target_seat)
                 {
@@ -95,10 +95,10 @@ public class PlayerControl : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //target = collision.gameObject.tag;
-        Debug.Log("TriggerEnter");
+        //Debug.Log("TriggerEnter");
         if (collision.GetComponent<Item>())
         {
-            Debug.Log("Item Enter");
+            //Debug.Log("Item Enter");
             target_item = collision.GetComponent<Item>();
         }
         if (collision.GetComponent<Seat>())
@@ -115,7 +115,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Item Exit");
+        //Debug.Log("Item Exit");
         if (collision.GetComponent<Item>())
         {
             target_item = null;
