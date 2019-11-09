@@ -10,8 +10,9 @@ public class SpeedControl : MonoBehaviour
     {
         while(true)
         {
-            AniAutoMove["PlayerMove"].speed *= 1.25f;
+            AniAutoMove["PlayerMove"].speed += 0.5f;
             yield return new WaitForSeconds(50);
+            Debug.Log("Speed:"+ AniAutoMove["PlayerMove"].speed);
         }
     }
 

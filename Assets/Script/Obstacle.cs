@@ -27,18 +27,18 @@ public class Obstacle : MonoBehaviour
         while(true)
         {
             int Random_Objects = Random.Range(0, 1);
-            if (Random_Objects == 0)
+        /*    if (Random_Objects == 0)
             {
                 Debug.Log("Fish Bone");
             }
             else
             {
                 Debug.Log("Dried Fish");
-            }
+            }*/
 
             int Random_Points = Random.Range(0, 3);
 
-            if (Random_Points == 0)
+         /*   if (Random_Points == 0)
             {
                 Debug.Log("Up trace");
             }
@@ -49,12 +49,12 @@ public class Obstacle : MonoBehaviour
             else
             {
                 Debug.Log("Down trace");
-            }
+            }*/
 
             Instantiate(Objects[Random_Objects],
                         Points[Random_Points].transform.position,
                         Points[Random_Points].transform.rotation);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5);
         }
     }
 
