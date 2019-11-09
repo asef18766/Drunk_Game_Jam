@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyRecorder : MonoBehaviour
 {
     [SerializeField] private double QueueClearTime=4;
-    private List<KeyCode> cur=new List<KeyCode>();
+    [SerializeField]private List<KeyCode> cur=new List<KeyCode>();
     [SerializeField]KeyCode[] SpecialKeySet=new KeyCode[10]{KeyCode.UpArrow,KeyCode.UpArrow,KeyCode.DownArrow,KeyCode.DownArrow,
                                                    KeyCode.LeftArrow,KeyCode.RightArrow,KeyCode.LeftArrow,KeyCode.RightArrow,
                                                    KeyCode.B,KeyCode.A};
