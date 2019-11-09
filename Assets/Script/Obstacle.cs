@@ -32,7 +32,7 @@ public class Obstacle : MonoBehaviour
                 Debug.Log("Fish Bone");
             }
             else
-            {
+            { 
                 Debug.Log("Dried Fish");
             }*/
 
