@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>     <Compile Include="Assets\Obstacle.cs" />
      <Compile Include="Assets\Scenes\shottest.cs" />
+     <Compile Include="Assets\Script\AutoMover.cs" />
      <Compile Include="Assets\Script\KeyRecorder.cs" />
      <Compile Include="Assets\Script\Player.cs" />
  <Reference Include="Unity.Timeline.Editor">
