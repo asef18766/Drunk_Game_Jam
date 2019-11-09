@@ -8,14 +8,38 @@ public class PlayerControl : MonoBehaviour
     public Player player;
     public float speed;
     public Animator anim;
-    private enum target { none, item, table};
+    public GameObject target;
+    public Item hold;
+
+    public Item target_item;
+    public Seat target_seat;
+    public Custom target_Custom;
     private void Act()
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            anim.SetTrigger("Attack");
+            if (target_item)
+            {
+                Debug.Log("Eat");
+                //anim.SetTrigger("Eat");
+                hold = target_item;
+                target_item.gameObject.SetActive(false);
+            }
+            else if (target_seat)
+            {
+                target_seat.place(hold);
+                target_seat = null;
+                //anim.SetTrigger("Place");
+            }
+            else if (target_Custom)
+            {
+                anim.SetTrigger("Attack");
+
+            }
         }
     }
+
+
     private void Move()
     {
         switch (player)
@@ -58,14 +82,40 @@ public class PlayerControl : MonoBehaviour
                 break;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-         if(other.tag == "Material")
+        //target = collision.gameObject.tag;
+        Debug.Log("TriggerEnter");
+        if (collision.GetComponent<Item>())
         {
-            Debug.Log("HI");
+            Debug.Log("Item Enter");
+            target_item = collision.GetComponent<Item>();
+        }
+        if (collision.GetComponent<Seat>())
+        {
+            target_seat = collision.GetComponent<Seat>();
+        }
+        if (collision.GetComponent<Custom>())
+        {
+            target_Custom = collision.GetComponent<Custom>();
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Item>())
+        {
+            target_item = null;
+        }
+        if (collision.GetComponent<Seat>())
+        {
+            target_seat = null;
+        }
+        if (collision.GetComponent<Custom>())
+        {
+            target_Custom = null;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -41,7 +41,11 @@ public class GeneratorCustom : MonoBehaviour
         for (int i = 0; i < seat.Length; i++)
         {
             if (seat[i].empty)
+            {
+
+                seat[i].empty = false;
                 return seat[i];
+            }
         }
         return null;
     }
@@ -49,9 +53,9 @@ public class GeneratorCustom : MonoBehaviour
     {
         while (seat_cnt > 0)
         {
-            GameObject a = Instantiate(custom[0], transform.position, Quaternion.identity);
+            GameObject a = Instantiate(custom[0], transform.position, Quaternion.identity); // 生成顧客並傳入a
 
-            a.GetComponent<Custom>().seat = Fnd();
+            a.GetComponent<Custom>().seat = Fnd(); // a 的 seat 為 fnd() 的回傳值
             yield return new WaitForSeconds(1);
             seat_cnt--;
         }
