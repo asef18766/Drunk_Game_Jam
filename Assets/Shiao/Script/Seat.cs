@@ -10,13 +10,19 @@ public class Seat : MonoBehaviour
     public Custom custom;
     public Item item;
     public SpriteRenderer onTable; // on table item
-    private Item[] items;
+    public Item[] items;
 
     void Start()
     {
 
     }
-
+    public Item Eat()
+    {
+        Item r = item;
+        item = null;
+        onTable.sprite = null;
+        return r;
+    }
     public void place(Item _item) //place item
     {
         if (!_item)
@@ -27,6 +33,7 @@ public class Seat : MonoBehaviour
                 if (item)
                 {
                     craft(_item);
+                    onTable.sprite = item.ren.sprite;
                 }
                 else
                 {
@@ -47,36 +54,138 @@ public class Seat : MonoBehaviour
         switch (item.type)
         {
             case Item.item_type.cat:
-                if (tp == Item.item_type.icecream) {
-                    item = Instantiate() 
+                if (tp == Item.item_type.icecream)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[1], transform.position, Quaternion.identity); 
+                }
+                else if(tp == Item.item_type.bambo)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[3], transform.position, Quaternion.identity);
+                    
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.icecream:
+                if (tp == Item.item_type.bomb)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[0], transform.position, Quaternion.identity);
+                }
+                else if (tp == Item.item_type.cat)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[1], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
             case Item.item_type.bambo:
+                if (tp == Item.item_type.cat)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[3], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
             case Item.item_type.bear:
+                if (tp == Item.item_type.ice)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[2], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
             case Item.item_type.cash:
+                if (tp == Item.item_type.water)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[4], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
             case Item.item_type.bomb:
+                if (tp == Item.item_type.icecream)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[0], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
-            case Item.item_type.weed:
-                break;
-            case Item.item_type.trash:
-                break;
+           
             case Item.item_type.ice:
+                if (tp == Item.item_type.bear)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[2], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
             case Item.item_type.water:
+                if (tp == Item.item_type.cash)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[4], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                }
                 break;
-            case Item.item_type.bubble:
-                break;
-            case Item.item_type.unicorn:
-                break;
-            case Item.item_type.mayor:
-                break;
+           
             default:
+                Destroy(item.gameObject);
+                Destroy(_item.gameObject);
+                item = Instantiate(items[5], transform.position, Quaternion.identity);
                 break;
         }
+        item.gameObject.SetActive(false);
     }
 }

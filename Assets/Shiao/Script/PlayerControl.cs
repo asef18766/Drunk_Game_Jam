@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public Animator anim;
     public GameObject target;
     public Item hold;
+    public int score;
 
     public Item target_item;
     public Seat target_seat;
@@ -18,17 +19,26 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            if (target_item)
+            if (target_item && !hold)
             {
                 Debug.Log("Eat");
                 //anim.SetTrigger("Eat");
-                hold = target_item;
-                target_item.gameObject.SetActive(false);
+                if (target_seat)
+                {
+                    hold = target_seat.Eat();
+                    target_item = null;
+                }
+                else
+                {
+                    hold = target_item;
+                    target_item.gameObject.SetActive(false);
+                }
             }
             else if (target_seat)
             {
                 target_seat.place(hold);
-                target_seat = null;
+                target_item = target_seat.item;
+                hold = null;
                 //anim.SetTrigger("Place");
             }
             else if (target_Custom)
@@ -94,6 +104,8 @@ public class PlayerControl : MonoBehaviour
         if (collision.GetComponent<Seat>())
         {
             target_seat = collision.GetComponent<Seat>();
+            if (target_seat.item)
+                target_item = target_seat.item;
         }
         if (collision.GetComponent<Custom>())
         {
@@ -103,6 +115,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Item Exit");
         if (collision.GetComponent<Item>())
         {
             target_item = null;

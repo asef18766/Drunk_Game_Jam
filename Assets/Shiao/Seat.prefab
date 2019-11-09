@@ -100,6 +100,20 @@ MonoBehaviour:
   custom: {fileID: 0}
   item: {fileID: 0}
   onTable: {fileID: 3276144119437493009}
+  items:
+  - {fileID: 7855649244388526792, guid: 34bad2317c61cd943b085585e5af5096, type: 3}
+  - {fileID: 4622111229152264667, guid: 26e3085d3e5013f49aa2b49f2e863974, type: 3}
+  - {fileID: 1921721013238164121, guid: b84dafda75943794881884495fa74a15, type: 3}
+  - {fileID: 3615201832476740365, guid: 25a55f27f2acbae4ab45434f426b755a, type: 3}
+  - {fileID: 6596241067565213195, guid: 8d8a7f2c0fd622943becaa65fd581760, type: 3}
+  - {fileID: 3912812976229602858, guid: 2a0fa6a156cbe794482c9ac1f0a8f298, type: 3}
+  - {fileID: 2061740646383923642, guid: 1859a46abec2bc2499668b2480fd5452, type: 3}
+  - {fileID: 5283177739269446304, guid: ab45d5f214bae434f8bef70b4430453c, type: 3}
+  - {fileID: 5123704193036595899, guid: a10c558d1e6bc434b9a0e3c7bf681e81, type: 3}
+  - {fileID: 2524834085431782100, guid: 71972cf42a8be2349adc8334bd74c067, type: 3}
+  - {fileID: 4093406872772906585, guid: cd002ddafb3a9b549956e7de758b440c, type: 3}
+  - {fileID: 3897011539296155943, guid: ccb3c540520fb054baa9fac6e39f3a37, type: 3}
+  - {fileID: 2950890717074618934, guid: 1fbb7fe587d59514aa5aab777427c398, type: 3}
 --- !u!61 &-2372081033096196429
 BoxCollider2D:
   m_ObjectHideFlags: 0

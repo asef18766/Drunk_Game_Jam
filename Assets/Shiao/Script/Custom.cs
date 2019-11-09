@@ -8,6 +8,7 @@ public class Custom : MonoBehaviour
     public Seat seat;
     public float speed = 5;
     public Item.item_type need;
+    public Seat target;
 
     private void move()
     {
@@ -15,7 +16,16 @@ public class Custom : MonoBehaviour
         transform.DOMove(seat.transform.position, 1).SetEase(Ease.Linear);
         Invoke("PassStatus", 1);
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Seat>())
+        {
+            target = collision.GetComponent<Seat>();
+            if(target.item.type == need)
+            {
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
