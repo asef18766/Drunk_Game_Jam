@@ -2,8 +2,11 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+<<<<<<< HEAD
     <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.11f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
     <CscToolExe>unity_csc.bat</CscToolExe>
+=======
+>>>>>>> ed01120d52344add1c5e4b6b3bd7e1488aa75751
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,6 +49,7 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.2.11f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -56,10 +60,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Obstacle.cs" />
+=======
+  <ItemGroup>     <Compile Include="Assets\Obstacle.cs" />
+>>>>>>> ed01120d52344add1c5e4b6b3bd7e1488aa75751
      <Compile Include="Assets\Scenes\shottest.cs" />
      <Compile Include="Assets\Script\KeyRecorder.cs" />
      <Compile Include="Assets\Script\Player.cs" />
  <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
  <HintPath>C:/Users/cinna/Desktop/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
@@ -85,6 +93,36 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/cinna/Desktop/Drunk_Game_Jam/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+=======
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Users/Lemino/Desktop/Drunk_Game_Jam/Drunk_Game_Jam/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+>>>>>>> ed01120d52344add1c5e4b6b3bd7e1488aa75751
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -263,6 +301,12 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
+<<<<<<< HEAD
+=======
+ <Reference Include="UnityEditor">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+ </Reference>
+>>>>>>> ed01120d52344add1c5e4b6b3bd7e1488aa75751
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
  </Reference>
