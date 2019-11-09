@@ -9,6 +9,10 @@ public class Obstacle : MonoBehaviour
     public Transform[] Points;
 
     public float TimeControl;
+
+    bool f;
+    float start;
+    bool[] check = new bool[3];
     public enum SpeedLevel {    
                                 ten_sec,
                                 five_sec,
@@ -33,8 +37,28 @@ public class Obstacle : MonoBehaviour
             GameObject NewObs = Instantiate(Objects[Random_Objects],
                                             Points[Random_Points].transform.position,
                                             Points[Random_Points].transform.rotation);
-            NewObs.GetComponent<ObsMove>().speed += TimeControl / 5;
-            float Random_time = Random.Range(3, 6);
+            NewObs.GetComponent<ObsMove>().speed += TimeControl / 3;
+            float Random_time = Random.Range(1, 5);
+
+            if (TimeControl - start < 1)
+            {
+                
+                check[Random_Points] = true;
+                for (int i = 0; i < 3; i++)
+                    if (!check[i])
+                        f = true;
+                if (f)
+                {
+                    Debug.Log("Rainbow");
+                }
+
+            }
+            else 
+            {
+                start = TimeControl;
+                for (int i = 0; i < 3; i++)
+                    check[i] = false;
+            }
             yield return new WaitForSeconds(Random_time);
         }
     }

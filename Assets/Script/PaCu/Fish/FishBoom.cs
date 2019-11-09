@@ -10,7 +10,8 @@ public class FishBoom : MonoBehaviour
     {
         Debug.Log("Boom!");
         Instantiate(Boom, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+ 
     }
 
     // Start is called before the first frame update
