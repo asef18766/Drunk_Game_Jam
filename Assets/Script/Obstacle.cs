@@ -54,7 +54,7 @@ public class Obstacle : MonoBehaviour
             Instantiate(Objects[Random_Objects],
                         Points[Random_Points].transform.position,
                         Points[Random_Points].transform.rotation);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
         }
     }
 
