@@ -83,11 +83,12 @@ public class Player : MonoBehaviour
         StartCoroutine(moving(dir));
         ChangeTrack(dir);
     }
+    public Animator Ani;
     void UpdateState()
     {
         if(keyRecorder.specialskill())
         {
-
+            Ani.SetTrigger("shot");
             Instantiate(Light, gameObject.transform.position, Quaternion.identity);
             Instantiate(firerainbow, transform.position, Quaternion.identity);
 
