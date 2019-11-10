@@ -718,7 +718,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 878849092}
   selectedCommands:
-  - {fileID: 878849113}
+  - {fileID: 878849104}
   variables: []
   description: 
   stepPause: 0
@@ -1150,7 +1150,7 @@ MonoBehaviour:
   fadeDuration: 1
 --- !u!114 &878849113
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
