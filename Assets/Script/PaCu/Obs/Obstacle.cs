@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
@@ -75,16 +76,19 @@ public class Obstacle : MonoBehaviour
         gamecontrol = GameObject.Find("EventSystem").GetComponent<GameController>();
      
     }
-
+    public GameObject light;
     public void GameEndCheck()
     {
         if(TimeControl >= GameClearTime )
         {
-
-            Debug.Log("GameClear");
-
+          //  Debug.Log(GameObject.Find("Canvas/EndMenu") + "Check");
+            Instantiate(light,new Vector3(0,0,0),Quaternion.identity);
+            if (GameObject.Find("Canvas/EndMenu")?.activeInHierarchy == false || GameObject.Find("Canvas/EndMenu") == null)
+            {
+               // Debug.Log(GameObject.Find("CheckEndMenu")+ "Load");
+                SceneManager.LoadScene("Ani02");
+            }
         }
-           
     }
 
 

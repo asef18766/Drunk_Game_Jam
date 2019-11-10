@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject firerainbow;
     // Start is called before the first frame update
     public PlayerState CurPlayerState;
+    public GameObject Light;
     public bool blocked=false;
     IEnumerator timer()
     {
@@ -82,11 +83,13 @@ public class Player : MonoBehaviour
         StartCoroutine(moving(dir));
         ChangeTrack(dir);
     }
+    public Animator Ani;
     void UpdateState()
     {
         if(keyRecorder.specialskill())
         {
-
+            Ani.SetTrigger("shot");
+            Instantiate(Light, gameObject.transform.position, Quaternion.identity);
             Instantiate(firerainbow, transform.position, Quaternion.identity);
 
             CurPlayerState =PlayerState.SpecialSkillActive;

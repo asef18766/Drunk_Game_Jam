@@ -12,6 +12,7 @@ public class FishBoom : MonoBehaviour
     {
         Debug.Log("Boom!");
         Instantiate(Boom, gameObject.transform.position, Quaternion.identity);
+
         gameObject.SetActive(false);
         gamecontrol.ShowEndMenu();
 
