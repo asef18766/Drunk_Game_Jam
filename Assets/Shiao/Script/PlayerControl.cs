@@ -15,17 +15,20 @@ public class PlayerControl : MonoBehaviour
     public Item target_item;
     public Seat target_seat;
     public Custom target_Custom;
+
+    public AudioSource eat;
     private void Act()
     {
         switch (player)
         {
             case Player.P1:
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.V))
                 {
                     if (target_item && !hold)
                     {
                         //Debug.Log("Eat");
                         //anim.SetTrigger("Eat");
+
                         if (target_seat)
                         {
                             hold = target_seat.Eat();
@@ -49,6 +52,7 @@ public class PlayerControl : MonoBehaviour
                         anim.SetTrigger("Attack");
 
                     }
+                    eat.Play();
                 }
                 break;
             case Player.P2:
@@ -56,6 +60,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     if (target_item && !hold)
                     {
+
                         //Debug.Log("Eat");
                         //anim.SetTrigger("Eat");
                         if (target_seat)
@@ -81,6 +86,7 @@ public class PlayerControl : MonoBehaviour
                         anim.SetTrigger("Attack");
 
                     }
+                    eat.Play();
                 }
                 break;
             default:
