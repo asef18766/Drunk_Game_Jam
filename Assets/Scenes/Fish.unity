@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boom: {fileID: 4786564465666725869, guid: dfbd4709f5c6b6f4daa7f44ae2757fbb, type: 3}
-  gamecontrol: {fileID: 0}
+  gamecontrol: {fileID: 1861188802}
   GameOverTime: 120
   obs: {fileID: 0}
 --- !u!1 &313731528
