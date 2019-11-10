@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] double mov_time=0;
     [SerializeField] track cur_track;
     [SerializeField] KeyRecorder keyRecorder;
-    
+    public GameObject firerainbow;
     // Start is called before the first frame update
     public PlayerState CurPlayerState;
     public bool blocked=false;
@@ -86,7 +86,10 @@ public class Player : MonoBehaviour
     {
         if(keyRecorder.specialskill())
         {
-            CurPlayerState=PlayerState.SpecialSkillActive;
+
+            Instantiate(firerainbow, transform.position, Quaternion.identity);
+
+            CurPlayerState =PlayerState.SpecialSkillActive;
             RaycastHit2D[] raycast=Physics2D.CircleCastAll(transform.position,10000f,Vector2.down);
             foreach(var i in raycast)
             {
