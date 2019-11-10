@@ -7,9 +7,10 @@ public class Obstacle : MonoBehaviour
     public GameObject[] Objects;
 
     public Transform[] Points;
+    public GameController gamecontrol;
 
     public float TimeControl;
-    public float GameOverTime;
+    public float GameClearTime;
 
     bool f;
     float start;
@@ -71,14 +72,16 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         StartCoroutine(Create());
+        gamecontrol = GameObject.Find("EventSystem").GetComponent<GameController>();
      
     }
 
     public void GameEndCheck()
     {
-        if(TimeControl >= GameOverTime )
+        if(TimeControl >= GameClearTime )
         {
-            Debug.Log("Game Clear");
+
+            Debug.Log("GameClear");
 
         }
            
