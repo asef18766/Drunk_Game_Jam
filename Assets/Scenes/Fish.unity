@@ -561,6 +561,7 @@ MonoBehaviour:
   firerainbow: {fileID: 6251853950721609313, guid: 67705ac313ad9474c81a02df71c19702,
     type: 3}
   CurPlayerState: 3
+  Light: {fileID: 8443597898738149548, guid: edf99991f07fbce4b9ea704ffcca504a, type: 3}
   blocked: 0
   RemainTime: 0
 --- !u!50 &288041028
