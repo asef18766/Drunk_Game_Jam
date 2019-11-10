@@ -708,6 +708,7 @@ MonoBehaviour:
   - {fileID: 1587812901}
   - {fileID: 229437734}
   TimeControl: 0
+  GameOverTime: 10
 --- !u!1 &1287701023
 GameObject:
   m_ObjectHideFlags: 0
