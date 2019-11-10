@@ -10,10 +10,15 @@ public class FishBoom : MonoBehaviour
     public Obstacle obs;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GetComponent<Player>().PlaySound(1);
         Debug.Log("Boom!");
         Instantiate(Boom, gameObject.transform.position, Quaternion.identity);
 
-        gameObject.SetActive(false);
+        Destroy(GetComponent<SpriteRenderer>());
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<Player>(),2);
+
         gamecontrol.ShowEndMenu();
 
     }

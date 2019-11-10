@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GeneratorCustom : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GeneratorCustom : MonoBehaviour
     public Text score_text;
     public void Gameover()
     {
-        image.SetActive(true);
+        SceneManager.LoadScene("Ani03");
     }
     private static GeneratorCustom instance;
     public static GeneratorCustom Instance

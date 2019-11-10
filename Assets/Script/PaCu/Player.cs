@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
         Mid,
         Down
     }
+    [SerializeField] List<AudioClip> sounds;
     [SerializeField] double mov_dis=0;
     [SerializeField] double mov_time=0;
     [SerializeField] track cur_track;
@@ -25,6 +26,12 @@ public class Player : MonoBehaviour
     public PlayerState CurPlayerState;
     public GameObject Light;
     public bool blocked=false;
+    AudioSource audioSource;
+    public void PlaySound(int index)
+    {
+        audioSource.clip=sounds[index];
+        audioSource.Play();
+    }
     IEnumerator timer()
     {
         blocked=true;
@@ -46,6 +53,7 @@ public class Player : MonoBehaviour
     }
     void ChangeTrack(bool dir)
     {
+        PlaySound(0);
         if(dir)
         {
             if(cur_track==track.Down)
@@ -88,6 +96,7 @@ public class Player : MonoBehaviour
     {
         if(keyRecorder.specialskill())
         {
+            PlaySound(2);
             Ani.SetTrigger("shot");
             Instantiate(Light, gameObject.transform.position, Quaternion.identity);
             Instantiate(firerainbow, transform.position, Quaternion.identity);
@@ -123,7 +132,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-
+        audioSource=GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
