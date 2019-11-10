@@ -31,7 +31,7 @@ public class Obstacle : MonoBehaviour
     {
         while(true)
         {
-            int Random_Objects = 0;//Random.Range(0, 1);
+            int Random_Objects = Random.Range(0, Objects.Length);
         
 
             int Random_Points = Random.Range(0, 3);
