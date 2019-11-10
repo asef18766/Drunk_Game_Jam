@@ -17,77 +17,125 @@ public class PlayerControl : MonoBehaviour
     public Custom target_Custom;
     private void Act()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        switch (player)
         {
-            if (target_item && !hold)
-            {
-                //Debug.Log("Eat");
-                //anim.SetTrigger("Eat");
-                if (target_seat)
+            case Player.P1:
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    hold = target_seat.Eat();
-                    target_item = null;
-                }
-                else
-                {
-                    hold = target_item;
-                    target_item.gameObject.SetActive(false);
-                }
-            }
-            else if (target_seat)
-            {
-                target_seat.place(hold);
-                target_item = target_seat.item;
-                hold = null;
-                //anim.SetTrigger("Place");
-            }
-            else if (target_Custom)
-            {
-                anim.SetTrigger("Attack");
+                    if (target_item && !hold)
+                    {
+                        //Debug.Log("Eat");
+                        //anim.SetTrigger("Eat");
+                        if (target_seat)
+                        {
+                            hold = target_seat.Eat();
+                            target_item = null;
+                        }
+                        else
+                        {
+                            hold = target_item;
+                            target_item.gameObject.SetActive(false);
+                        }
+                    }
+                    else if (target_seat)
+                    {
+                        target_seat.place(hold);
+                        target_item = target_seat.item;
+                        hold = null;
+                        //anim.SetTrigger("Place");
+                    }
+                    else if (target_Custom)
+                    {
+                        anim.SetTrigger("Attack");
 
-            }
+                    }
+                }
+                break;
+            case Player.P2:
+                if (Input.GetKeyDown(KeyCode.Period)) // . key
+                {
+                    if (target_item && !hold)
+                    {
+                        //Debug.Log("Eat");
+                        //anim.SetTrigger("Eat");
+                        if (target_seat)
+                        {
+                            hold = target_seat.Eat();
+                            target_item = null;
+                        }
+                        else
+                        {
+                            hold = target_item;
+                            target_item.gameObject.SetActive(false);
+                        }
+                    }
+                    else if (target_seat)
+                    {
+                        target_seat.place(hold);
+                        target_item = target_seat.item;
+                        hold = null;
+                        //anim.SetTrigger("Place");
+                    }
+                    else if (target_Custom)
+                    {
+                        anim.SetTrigger("Attack");
+
+                    }
+                }
+                break;
+            default:
+                break;
         }
+        
     }
 
 
-    private void Move()
+    private void Move() // without roatation
     {
         switch (player)
         {
             case Player.P1:
                 if (Input.GetKey(KeyCode.W))
                 {
-                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, 90);
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, -90);
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 180, 0);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
                 }
                 break;
             case Player.P2:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, speed * Time.deltaTime, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, 90);
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+                    transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, -90);
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 180, 0);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                    transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0), Space.World);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
                 }
                 break;
         }

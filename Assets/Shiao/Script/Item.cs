@@ -5,9 +5,9 @@ using UnityEditor;
 
 public class Item : MonoBehaviour
 {
-    public enum item_type { cat, icecream, bambo, bear, cash, bomb, weed, ice, water, bubble, unicorn, mayor, trash };
+    public enum item_type { cat, icecream, bambo, bear, cash, bomb, weed, sauce, ice, water, bubble, unicorn, mayor, green, trash };
     public item_type type;
-    public float LifeTime;
+    public float LifeTime = 3600;
     public float speed = 50f;
     public float timer;
     public SpriteRenderer ren;
@@ -36,6 +36,7 @@ public class Item : MonoBehaviour
         if(timer > LifeTime)
         {
             ren.sprite = trash;
+
         }
     }
 

@@ -11,11 +11,11 @@ public class GeneratorItem : MonoBehaviour
     
     IEnumerator Create()
     {
-        while (cnt < 5)
+        while (cnt < 1000000)
         {
-            GameObject a = Instantiate(items[Random.Range(0, 8)], transform.position, Quaternion.identity);
+            GameObject a = Instantiate(items[Random.Range(0, 9)], transform.position, Quaternion.identity);
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
             cnt++;
         }
     }

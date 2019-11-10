@@ -51,13 +51,20 @@ public class GeneratorCustom : MonoBehaviour
     }
     IEnumerator Create()
     {
-        while (seat_cnt > 0)
+        while (true)
         {
-            GameObject a = Instantiate(custom[0], transform.position, Quaternion.identity); // 生成顧客並傳入a
+            if (seat_cnt > 0)
+            {
+                GameObject a = Instantiate(custom[0], transform.position, Quaternion.identity); // 生成顧客並傳入a
 
-            a.GetComponent<Custom>().seat = Fnd(); // a 的 seat 為 fnd() 的回傳值
-            yield return new WaitForSeconds(1);
-            seat_cnt--;
+                a.GetComponent<Custom>().seat = Fnd(); // a 的 seat 為 fnd() 的回傳值
+                a.GetComponent<Custom>().pa = this;
+                yield return new WaitForSeconds(1);
+                seat_cnt--;
+            }
+            else
+                yield return new WaitForSeconds(1);
+
         }
     }
 }

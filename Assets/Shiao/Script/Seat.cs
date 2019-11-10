@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Seat : MonoBehaviour
 {
-    public enum seat_type { inside, outside };
+    public enum seat_type { inside, outside, trashcan, };
     public seat_type st;
     public bool empty = true;
     public Custom custom;
@@ -15,7 +15,7 @@ public class Seat : MonoBehaviour
 
     public Item Eat()
     {
-        if (st == seat_type.outside)
+        if (st != seat_type.inside)
             return null;
         Item r = item;
         item = null;
@@ -44,9 +44,20 @@ public class Seat : MonoBehaviour
                 item = _item;
                 onTable.sprite = item.ren.sprite;
                 break;
+            case seat_type.trashcan:
+                item = _item;
+                onTable.sprite = item.ren.sprite;
+                Invoke("P", 1);
+                break;
             default:
                 break;
         }
+    }
+    public void P()
+    {
+        Destroy(item.gameObject);
+        item = null;
+        onTable.sprite = null;
     }
     void craft(Item _item)
     {
@@ -58,20 +69,20 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[1], transform.position, Quaternion.identity); 
+                    item = Instantiate(items[8], transform.position, Quaternion.identity); 
                 }
                 else if(tp == Item.item_type.bambo)
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[3], transform.position, Quaternion.identity);
+                    item = Instantiate(items[10], transform.position, Quaternion.identity);
                     
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.icecream:
@@ -79,19 +90,19 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[0], transform.position, Quaternion.identity);
+                    item = Instantiate(items[7], transform.position, Quaternion.identity);
                 }
                 else if (tp == Item.item_type.cat)
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[1], transform.position, Quaternion.identity);
+                    item = Instantiate(items[8], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.bambo:
@@ -99,13 +110,13 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[3], transform.position, Quaternion.identity);
+                    item = Instantiate(items[10], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.bear:
@@ -113,13 +124,13 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[2], transform.position, Quaternion.identity);
+                    item = Instantiate(items[9], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.cash:
@@ -127,13 +138,13 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[4], transform.position, Quaternion.identity);
+                    item = Instantiate(items[11], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.bomb:
@@ -141,13 +152,13 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[0], transform.position, Quaternion.identity);
+                    item = Instantiate(items[7], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
            
@@ -156,13 +167,13 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[2], transform.position, Quaternion.identity);
+                    item = Instantiate(items[9], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
             case Item.item_type.water:
@@ -170,20 +181,47 @@ public class Seat : MonoBehaviour
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[4], transform.position, Quaternion.identity);
+                    item = Instantiate(items[11], transform.position, Quaternion.identity);
                 }
                 else
                 {
                     Destroy(item.gameObject);
                     Destroy(_item.gameObject);
-                    item = Instantiate(items[5], transform.position, Quaternion.identity);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
                 }
                 break;
-           
+            case Item.item_type.weed:
+                if(tp == Item.item_type.sauce)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[13], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
+                }
+                break;
+            case Item.item_type.sauce:
+                if (tp == Item.item_type.weed)
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[13], transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Destroy(item.gameObject);
+                    Destroy(_item.gameObject);
+                    item = Instantiate(items[12], transform.position, Quaternion.identity);
+                }
+                break;
             default:
                 Destroy(item.gameObject);
                 Destroy(_item.gameObject);
-                item = Instantiate(items[5], transform.position, Quaternion.identity);
+                item = Instantiate(items[12], transform.position, Quaternion.identity);
                 break;
         }
         item.gameObject.SetActive(false);
