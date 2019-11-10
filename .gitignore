@@ -33,6 +33,10 @@ sysinfo.txt
 
 # Builds
 *.apk
+<<<<<<< HEAD
 *.unitypackage
 ProjectSettings/QualitySettings.asset
 ProjectSettings/UnityConnectSettings.asset
+=======
+*.unitypackage
+>>>>>>> PACU
