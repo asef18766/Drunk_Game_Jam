@@ -43,6 +43,7 @@ public class Seat : MonoBehaviour
             case seat_type.outside:
                 item = _item;
                 onTable.sprite = item.ren.sprite;
+                custom.CEat();
                 break;
             case seat_type.trashcan:
                 item = _item;

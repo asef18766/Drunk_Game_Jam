@@ -1,12 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GeneratorCustom : MonoBehaviour
 {
     public GameObject[] custom;
     public Seat[] seat;
     public int seat_cnt;
+    public GameObject image;
+    public int score;
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            score = value;
+            score_text.text = "Score : " + score;
+            if(score > 200)
+            {
+                Gameover();
+            }
+        }
+    }
+    public Text score_text;
+    public void Gameover()
+    {
+        image.SetActive(true);
+    }
     private static GeneratorCustom instance;
     public static GeneratorCustom Instance
     {

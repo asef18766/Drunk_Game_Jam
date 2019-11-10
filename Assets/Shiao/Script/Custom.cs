@@ -14,9 +14,10 @@ public class Custom : MonoBehaviour
     private void move()
     {
         //transform.Translate((seat.transform.position - transform.position) * speed * Time.deltaTime);
-        transform.DOMove((seat.transform.position - Vector3.up), 1).SetEase(Ease.Linear);
+        transform.DOMove(seat.transform.position, 1).SetEase(Ease.Linear);
         Invoke("PassStatus", 1);
     }
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (seat.item == null)
@@ -26,6 +27,11 @@ public class Custom : MonoBehaviour
             Debug.Log("Eating");
             Invoke("CustomEat", 1);
         }
+    }
+    */
+    public void CEat()
+    {
+        Invoke("CustomEat", 1);
     }
     // Start is called before the first frame update
     void Start()
@@ -49,12 +55,12 @@ public class Custom : MonoBehaviour
         if (seat.item.type == need)
         {
             // score +
-            score += 100;
+            pa.Score += 100;
         }
         else
         {
             // score -
-            score -= 50;
+            pa.Score -= 50;
         }
         Destroy(seat.item.gameObject);
         seat.empty = true;
