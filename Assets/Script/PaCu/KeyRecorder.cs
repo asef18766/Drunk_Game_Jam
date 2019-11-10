@@ -61,7 +61,6 @@ public class KeyRecorder : MonoBehaviour
                 }
             if(flag==true)
             {
-                Debug.Log("special Active!!");
                 cur.Clear();
                 return true;
             }
