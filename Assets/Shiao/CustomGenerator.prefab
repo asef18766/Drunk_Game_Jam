@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   custom:
-  - {fileID: 6693967094281477028, guid: 83852b7533a23224ea4a02fc6142c1e2, type: 3}
-  seat:
-  - {fileID: 0}
+  - {fileID: 6786530460672539996, guid: 36ffa80894cd7834a999d646d8aba49f, type: 3}
+  - {fileID: 6786530460672539996, guid: e342803657d9dd44a80a4a0854d725a9, type: 3}
+  - {fileID: 6786530460672539996, guid: 6747a5d7dec79174a91158d4398b2e95, type: 3}
+  seat: []
   seat_cnt: 0

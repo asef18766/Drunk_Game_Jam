@@ -55,7 +55,7 @@ public class GeneratorCustom : MonoBehaviour
         {
             if (seat_cnt > 0)
             {
-                GameObject a = Instantiate(custom[0], transform.position, Quaternion.identity); // 生成顧客並傳入a
+                GameObject a = Instantiate(custom[Random.Range(0, custom.Length)], transform.position, Quaternion.identity); // 生成顧客並傳入a
 
                 a.GetComponent<Custom>().seat = Fnd(); // a 的 seat 為 fnd() 的回傳值
                 a.GetComponent<Custom>().pa = this;
