@@ -9,6 +9,7 @@ public class Obstacle : MonoBehaviour
     public Transform[] Points;
 
     public float TimeControl;
+    public float GameOverTime;
 
     bool f;
     float start;
@@ -63,6 +64,9 @@ public class Obstacle : MonoBehaviour
         }
     }
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,9 +74,21 @@ public class Obstacle : MonoBehaviour
      
     }
 
+    public void GameEndCheck()
+    {
+        if(TimeControl >= GameOverTime )
+        {
+            Debug.Log("Game Clear");
+
+        }
+           
+    }
+
+
     // Update is called once per frame
     void Update()
     {
         TimeControl += Time.deltaTime;
+        GameEndCheck();
     }
 }
