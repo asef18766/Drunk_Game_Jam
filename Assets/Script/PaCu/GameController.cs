@@ -14,6 +14,14 @@ public class GameController : MonoBehaviour
     {
          SceneManager.LoadScene("Fish");
     }
+    public void LoadGame(string str)
+    {
+         SceneManager.LoadScene(str);
+    }
+    public void OpenUrl(string url)
+    {
+        Application.OpenURL(url);
+    }
     // Start is called before the first frame update
     void Start()
     {
