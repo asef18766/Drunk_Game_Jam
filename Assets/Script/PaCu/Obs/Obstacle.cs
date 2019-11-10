@@ -81,10 +81,14 @@ public class Obstacle : MonoBehaviour
     {
         if(TimeControl >= GameClearTime )
         {
+          //  Debug.Log(GameObject.Find("Canvas/EndMenu") + "Check");
             Instantiate(light,new Vector3(0,0,0),Quaternion.identity);
-            SceneManager.LoadScene("Anil02");
+            if (GameObject.Find("Canvas/EndMenu")?.activeInHierarchy == false || GameObject.Find("Canvas/EndMenu") == null)
+            {
+               // Debug.Log(GameObject.Find("CheckEndMenu")+ "Load");
+                SceneManager.LoadScene("Ani02");
+            }
         }
-           
     }
 
 
