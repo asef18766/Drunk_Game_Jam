@@ -87,6 +87,16 @@ public class Player : MonoBehaviour
         if(keyRecorder.specialskill())
         {
             CurPlayerState=PlayerState.SpecialSkillActive;
+            RaycastHit2D[] raycast=Physics2D.CircleCastAll(transform.position,10000f,Vector2.down);
+            foreach(var i in raycast)
+            {
+                if(i.collider.gameObject.tag=="Obstacle")
+                {
+                    Destroy(i.collider.gameObject);
+                }
+                    
+            }
+                
             return;
         }
         
